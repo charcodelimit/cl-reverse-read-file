@@ -1,4 +1,4 @@
-# cl-reverse-read-file [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-file.svg)](https://travis-ci.org/charcodelimit/cl-reverse-read-file)
+# cl-reverse-read-file [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-line.svg?branch=callback-loop)](https://travis-ci.org/charcodelimit/cl-reverse-read-file)
 
 The goal of this small programming exercise is to read a file 
 from its end towards its start line by line in Common Lisp.
@@ -31,25 +31,18 @@ CL-USER> (reverse-file "test-1.dat")
 ("abc" "test" "3" "2" "1")
 ```
 
+## Implementation - do-readline function with callback
+
+The implementation is based on a loop in which a callback function
+is called with the current line as argument.
+
+A buffer is used to read the file block-wise into memory starting
+from the current position in the file-stream towards the 
+start of the file. The stream-position is adjusted such that 
+it is possible to read preceding lines by repeated calls to
+the do-readline function.
+
 ## Usage
-
-The master branch of this project contains a minimal set of files to get
-started with an implementation for this problem:
-
- * the system definitions
- * a file for implementing a test suite
- * a file for implementing the algorithm
- * 5 test files covering different test-cases
-
-The files with the test-data cover the following cases:
-
-| filename | description |
-|:-:|:-|
-| test-1.dat | multiple lines, last line ends with newline |
-| test-2.dat | multiple lines, last line without newline |
-| test-3.dat | single-line, line ends with newline |
-| test-4.dat | single-line, no newline |
-| test-5.dat | empty file |
 
 To load the [system definition](https://common-lisp.net/project/asdf/) and execute the tests run:
 ```lisp
@@ -63,16 +56,15 @@ For unit-testing [fiveam](https://github.com/sionescu/fiveam) is required, which
 (ql:quickload "fiveam")
 ```
 
-## Implementations
+The files with the test-data cover the following cases:
 
-This repository contains branches with different implementations for reading
-lines from a file starting from its end.
-
-| | branch name | description |
-|:-:|:-|:-|
-| [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-file.svg?branch=readline-loop)](https://travis-ci.org/charcodelimit/cl-reverse-read-file) | readline-loop | a readline function that is called in a loop, which returns NIL if no previous line is found |
-| [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-file.svg?branch=callback-loop)](https://travis-ci.org/charcodelimit/cl-reverse-read-file) | callback-loop | a do-readline function that iterates through the file from last line to first line and executes a callback-function with the current line as argument |
-| [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-file.svg?branch=do-readline-macro)](https://travis-ci.org/charcodelimit/cl-reverse-read-file) | do-readline-macro | a do-readline macro that iterates through the file from last line to first line and executes the loop body with the current line bound to a variable |
+| filename | description |
+|:-:|:-|
+| test-1.dat | multiple lines, last line ends with newline |
+| test-2.dat | multiple lines, last line without newline |
+| test-3.dat | single-line, line ends with newline |
+| test-4.dat | single-line, no newline |
+| test-5.dat | empty file |
 
 ## License
 
