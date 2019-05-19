@@ -15,6 +15,7 @@ env:
 matrix:
   allow_failures:
     - env: LISP=cmucl
+    - env: LISP=ecl
 
 install:
   - curl -L https://github.com/luismbo/cl-travis/raw/master/install.sh | sh
