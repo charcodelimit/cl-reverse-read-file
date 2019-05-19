@@ -12,7 +12,7 @@ Additional requirements that should be fulfilled:
 
 Example:
 
-```
+```lisp
 (defun reverse-file (pathname)
   "COLLECTs lines in file named PATHNAME starting from the end of the file"
   (with-open-file (str pathname
@@ -26,8 +26,10 @@ Example:
       )))
 ```
 
-```CL-USER> (reverse-file "test-1.dat")
-("abc" "test" "3" "2" "1")```
+```lisp
+CL-USER> (reverse-file "test-1.dat")
+("abc" "test" "3" "2" "1")
+```
 
 ## Usage
 
@@ -50,11 +52,15 @@ The files with the test-data cover the following cases:
 | test-5.dat | empty file |
 
 To load the [system definition](https://common-lisp.net/project/asdf/) and execute the tests run:
-```(load "cl-reverse-read-file.asd")
-(asdf:test-system :cl-reverse-read-file)```
+```lisp
+(load "cl-reverse-read-file.asd")
+(asdf:test-system :cl-reverse-read-file)
+```
 
 For unit-testing [fiveam](https://github.com/sionescu/fiveam) is required, which can be loaded through e.g. [quicklisp](https://www.quicklisp.org) using:
-```(ql:quickload "fiveam")```
+```lisp
+(ql:quickload "fiveam")
+```
 
 ## Implementations
 

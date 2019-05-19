@@ -12,6 +12,10 @@ env:
     - LISP=sbcl
     - LISP=sbcl32
 
+matrix:
+  allow_failures:
+    - env: LISP=cmucl
+
 install:
   - curl -L https://github.com/luismbo/cl-travis/raw/master/install.sh | sh
   - cl -e "(cl:in-package :cl-user)
