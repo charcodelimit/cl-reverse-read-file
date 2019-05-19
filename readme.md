@@ -54,7 +54,8 @@ The files with the test-data cover the following cases:
 To load the [system definition](https://common-lisp.net/project/asdf/) and execute the tests run:
 ```lisp
 (load "cl-reverse-read-file.asd")
-(asdf:test-system :cl-reverse-read-file)
+(load "cl-reverse-read-file-test.asd")
+(asdf:test-system :cl-reverse-read-file-test)
 ```
 
 For unit-testing [fiveam](https://github.com/sionescu/fiveam) is required, which can be loaded through e.g. [quicklisp](https://www.quicklisp.org) using:
