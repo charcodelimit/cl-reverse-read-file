@@ -14,7 +14,7 @@
 (defmacro with-test-file-at-end ((stream pathname) &body body)
   `(with-open-file (,stream ,pathname
                             :direction :input
-                            :element-type :default
+                            #-abcl :element-type #-abcl :default
                             :external-format :default)
      (let ((file-size (file-length str)))
        (file-position ,stream file-size)
