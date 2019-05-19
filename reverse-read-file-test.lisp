@@ -12,9 +12,9 @@
 ;;;
 ;;; Created: Di Apr 30 19:04:31 2019 (+0200)
 ;;;
-;;; Last-Updated: Do Mai  2 07:27:41 2019 (+0200)
+;;; Last-Updated: So Mai 19 21:26:33 2019 (+0200)
 ;;;           By: Christian Hofmann-Fuchs
-;;;           Update #: 23
+;;;           Update #: 24
 ;;;
 ;;; Copyright (C) 2019, Christian Hofmann-Fuchs. All rights reserved.
 ;;;
@@ -65,7 +65,7 @@
 (defmacro with-test-file-at-end ((stream pathname) &body body)
   `(with-open-file (,stream ,pathname
                             :direction :input
-                            :element-type :default
+                            #-abcl :element-type #-abcl :default
                             :external-format :default)
      (let ((file-size (file-length str)))
        (file-position ,stream file-size)
