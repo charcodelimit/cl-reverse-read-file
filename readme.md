@@ -1,4 +1,4 @@
-# cl-reverse-read-file [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-line.svg?branch=readline-loop)](https://travis-ci.org/charcodelimit/cl-reverse-read-file)
+# cl-reverse-read-file [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-file.svg?branch=readline-loop)](https://travis-ci.org/charcodelimit/cl-reverse-read-file)
 
 The goal of this small programming exercise is to read a file 
 from its end towards its start line by line in Common Lisp.
@@ -21,9 +21,10 @@ Example:
                        :external-format :default)
     (let ((file-size (file-length str)))
       (file-position str file-size)
-      ;;; read lines from stream and collect into a list while
-      ;;; moving to the start of the file
-      )))
+      (loop :for line = (reverse-read-line str)
+              :then (reverse-read-line str)
+            :while line
+            :collect line))))
 ```
 
 ```lisp
