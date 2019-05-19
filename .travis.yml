@@ -27,4 +27,4 @@ script:
                  (lambda (c h)
                    (declare (ignore c h))
                    (uiop:quit -1)))
-           (asdf:test-system :cl-reverse-read-file-test))'
+           (asdf:test-system :cl-reverse-read-file-test)'
