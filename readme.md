@@ -1,4 +1,4 @@
-# cl-reverse-read-file [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-line.svg)](https://travis-ci.org/charcodelimit/cl-reverse-read-file)
+# cl-reverse-read-file [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-file.svg)](https://travis-ci.org/charcodelimit/cl-reverse-read-file)
 
 The goal of this small programming exercise is to read a file 
 from its end towards its start line by line in Common Lisp.
@@ -70,9 +70,9 @@ lines from a file starting from its end.
 
 | | branch name | description |
 |:-:|:-|:-|
-| [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-line.svg?branch=readline-loop)](https://travis-ci.org/charcodelimit/cl-reverse-read-file) | readline-loop | a readline function that is called in a loop, which returns NIL if no previous line is found |
-| [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-line.svg?branch=callback-loop)](https://travis-ci.org/charcodelimit/cl-reverse-read-file) | callback-loop | a do-readline function that iterates through the file from last line to first line and executes a callback-function with the current line as argument |
-| [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-line.svg?branch=do-readline-macro)](https://travis-ci.org/charcodelimit/cl-reverse-read-file) | do-readline-macro | a do-readline macro that iterates through the file from last line to first line and executes the loop body with the current line bound to a variable |
+| [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-file.svg?branch=readline-loop)](https://travis-ci.org/charcodelimit/cl-reverse-read-file) | readline-loop | a readline function that is called in a loop, which returns NIL if no previous line is found |
+| [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-file.svg?branch=callback-loop)](https://travis-ci.org/charcodelimit/cl-reverse-read-file) | callback-loop | a do-readline function that iterates through the file from last line to first line and executes a callback-function with the current line as argument |
+| [![Build Status](https://travis-ci.org/charcodelimit/cl-reverse-read-file.svg?branch=do-readline-macro)](https://travis-ci.org/charcodelimit/cl-reverse-read-file) | do-readline-macro | a do-readline macro that iterates through the file from last line to first line and executes the loop body with the current line bound to a variable |
 
 ## License
 
