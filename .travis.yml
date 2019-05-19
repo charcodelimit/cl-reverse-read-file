@@ -25,8 +25,8 @@ install:
 script:
   - cl -e '(cl:in-package :cl-user)
            (ql:quickload :cl-reverse-read-file-test)
-           (setf fiveam:*debug-on-error* t)
-           (setf fiveam:*debug-on-failure* t)
+           (setf fiveam:*on-error* :debug)
+           (setf fiveam:*on-failure* :debug)
            (setf *debugger-hook*
                  (lambda (c h)
                    (declare (ignore c h))
