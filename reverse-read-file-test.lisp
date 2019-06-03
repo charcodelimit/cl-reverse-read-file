@@ -12,9 +12,9 @@
 ;;;
 ;;; Created: Di Apr 30 19:04:31 2019 (+0200)
 ;;;
-;;; Last-Updated: So Mai 19 21:19:46 2019 (+0200)
+;;; Last-Updated: Mo Jun  3 22:57:34 2019 (+0200)
 ;;;           By: Christian Hofmann-Fuchs
-;;;           Update #: 53
+;;;           Update #: 56
 ;;;
 ;;; Copyright (C) 2019, Christian Hofmann-Fuchs. All rights reserved.
 ;;;
@@ -104,3 +104,12 @@
 (def-test test-reverse-read-line-with-buffer-refresh-required ()
   (with-test-file-at-end (str #P"test-1.dat")
     (assert-read-line str 8)))
+
+(def-test test-return ()
+  (with-test-file-at-end (str #P"test-1.dat")
+    (is (eq 11
+           (do-reverse-read-line (line str :buffer-size 4)
+             (return 11))))
+    (is (eq nil
+            (do-reverse-read-line (line str :buffer-size 4)
+              (return))))))

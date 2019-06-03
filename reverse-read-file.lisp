@@ -12,9 +12,9 @@
 ;;;
 ;;; Created: Fr Mai  3 07:27:34 2019 (+0200)
 ;;;
-;;; Last-Updated: So Mai 12 22:38:14 2019 (+0200)
+;;; Last-Updated: Mo Jun  3 22:55:34 2019 (+0200)
 ;;;           By: Christian Hofmann-Fuchs
-;;;           Update #: 112
+;;;           Update #: 113
 ;;;
 ;;; Copyright (C) 2019, Christian Hofmann-Fuchs. All rights reserved.
 ;;;
@@ -82,9 +82,9 @@ with the variable LINE bound to the current line.
 Data is read in chunks of size BUFFER-SIZE"
   (let ((buffer (gensym "buffer"))
         (remaining (gensym "remaining")))
-    `(prog ((,buffer (make-array ,buffer-size :element-type 'character))
-            (,remaining (file-position ,stream))
-            (,line nil))
+    `(let ((,buffer (make-array ,buffer-size :element-type 'character))
+           (,remaining (file-position ,stream))
+           (,line nil))
        (declare (type file-stream ,stream)
                 (type (or null string) ,line))
        (when (> ,remaining 0)
